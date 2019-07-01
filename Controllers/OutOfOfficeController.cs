@@ -6,8 +6,8 @@ namespace OutOfOffice.Controllers
     public class OutOfOfficeController : Controller
     {
         // Get OutOfOffice
-        public string Index() {
-            return "Welcome to Out of Office";
+        public IActionResult Index() {
+            return View();
         }
     }
 }
