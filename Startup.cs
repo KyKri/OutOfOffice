@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OutOfOffice.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace OutOfOffice
 {
@@ -31,6 +33,7 @@ namespace OutOfOffice
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddDbContext<OutOfOfficeContext>(options => options.UseSqlite(Configuration.GetConnectionString("OutOfOfficeContext")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
