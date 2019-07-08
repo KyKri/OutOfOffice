@@ -19,9 +19,15 @@ namespace OutOfOffice.Controllers
         }
 
         // GET: OutOfOffice
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Request.ToListAsync());
+            var requests = from r in _context.Request select r;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                requests = requests.Where(s => s.Name.Contains(searchString));
+            }
+            return View(await requests.ToListAsync());
         }
 
         // GET: OutOfOffice/Details/5
