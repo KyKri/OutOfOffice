@@ -41,7 +41,7 @@ namespace OutOfOffice.Controllers
                 Requests = await requests.ToListAsync()
             };
 
-            return View(await requests.ToListAsync());
+            return View(statusViewModel);
         }
 
         // GET: OutOfOffice/Details/5
