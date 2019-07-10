@@ -1,4 +1,4 @@
-@model IEnumerable<OutOfOffice.Models.Request>
+@model OutOfOffice.Models.StatusViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -11,6 +11,12 @@
 </p>
 <form asp-controller="OutOfOfficeController" asp-action="Index" method="get">
     <p>
+        Filter by Status: 
+        <select asp-for="RequestStatus" asp-items="Model.Status">
+            <option value="">All</option>
+        </select>
+    </p>
+    <p>
         Search by Name: <input type="text" name="searchString"/>
         <input type="submit" value="Filter"/>
     </p>
@@ -19,34 +25,34 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.Requests[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @Html.DisplayNameFor(model => model.Requests[0].Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApproverEmail)
+                @Html.DisplayNameFor(model => model.Requests[0].ApproverEmail)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RequestType)
+                @Html.DisplayNameFor(model => model.Requests[0].RequestType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LeaveDateTime)
+                @Html.DisplayNameFor(model => model.Requests[0].LeaveDateTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReturnDateTime)
+                @Html.DisplayNameFor(model => model.Requests[0].ReturnDateTime)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Reason)
+                @Html.DisplayNameFor(model => model.Requests[0].Reason)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                @Html.DisplayNameFor(model => model.Requests[0].Status)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Requests) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
