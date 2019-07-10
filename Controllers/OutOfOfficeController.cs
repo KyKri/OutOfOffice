@@ -19,14 +19,28 @@ namespace OutOfOffice.Controllers
         }
 
         // GET: OutOfOffice
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string requestStatus, string searchString)
         {
+            IQueryable<string> statusQuery = from r in _context.Request orderby r.Status select r.Status;
+
             var requests = from r in _context.Request select r;
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 requests = requests.Where(s => s.Name.Contains(searchString));
             }
+
+            if (!String.IsNullOrEmpty(requestStatus))
+            {
+                requests = requests.Where(t => t.Status == requestStatus);
+            }
+
+            var statusViewModel = new StatusViewModel
+            {
+                Status = new SelectList(await statusQuery.Distinct().ToListAsync()),
+                Requests = await requests.ToListAsync()
+            };
+
             return View(await requests.ToListAsync());
         }
 
