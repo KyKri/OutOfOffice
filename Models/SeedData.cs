@@ -21,6 +21,7 @@ namespace OutOfOffice.Models
                     {
                         Name = "John Smith",
                         Email = "jsmith@saltandlight.technology",
+                        ApproverName = "Admin",
                         ApproverEmail = "admin@saltandlight.technology",
                         RequestType = "Vacation",
                         LeaveDateTime = DateTime.Now,
@@ -32,6 +33,7 @@ namespace OutOfOffice.Models
                     {
                         Name = "Jane Doe",
                         Email = "jdoe@saltandlight.technology",
+                        ApproverName = "Admin",
                         ApproverEmail = "admin@saltandlight.technology",
                         RequestType = "Sick",
                         LeaveDateTime = DateTime.Now,
@@ -43,6 +45,7 @@ namespace OutOfOffice.Models
                     {
                         Name = "Jay Freeman",
                         Email = "jfreeman@saltandlight.technology",
+                        ApproverName = "Admin",
                         ApproverEmail = "admin@saltandlight.technology",
                         RequestType = "Jury Duty",
                         LeaveDateTime = DateTime.Now,
@@ -54,6 +57,7 @@ namespace OutOfOffice.Models
                     {
                         Name = "Jimmy Taylor",
                         Email = "jtaylor@saltandlight.technology",
+                        ApproverName = "Admin",
                         ApproverEmail = "admin@saltandlight.technology",
                         RequestType = "Vacation",
                         LeaveDateTime = DateTime.Now,
@@ -65,6 +69,7 @@ namespace OutOfOffice.Models
                     {
                         Name = "Xelyk Xyran",
                         Email = "xxyran@saltandlight.technology",
+                        ApproverName = "Admin",
                         ApproverEmail = "admin@saltandlight.technology",
                         RequestType = "Exempt - Less than 8 hours",
                         LeaveDateTime = DateTime.Now,

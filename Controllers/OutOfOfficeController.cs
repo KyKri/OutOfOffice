@@ -73,7 +73,7 @@ namespace OutOfOffice.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email,ApproverEmail,RequestType,LeaveDateTime,ReturnDateTime,Reason,Status")] Request request)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,ApproverName,ApproverEmail,RequestType,LeaveDateTime,ReturnDateTime,Reason,Status")] Request request)
         {
             if (ModelState.IsValid)
             {
