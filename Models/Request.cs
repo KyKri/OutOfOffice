@@ -16,6 +16,11 @@ namespace OutOfOffice.Models
         [Required]
         public string Email { get; set; }
 
+        [Display(Name = "Approver Name")]
+        [StringLength(50)]
+        [Required]
+        public string ApproverName { get; set; }
+
         [Display(Name = "Approver Email")]
         [StringLength(50)]
         [Required]
