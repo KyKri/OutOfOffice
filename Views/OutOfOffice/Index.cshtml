@@ -1,10 +1,10 @@
 @model OutOfOffice.Models.StatusViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Requests";
 }
 
-<h1>Index</h1>
+<h1>Requests</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -46,10 +46,10 @@
 @foreach (var item in Model.Requests) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Name)
+                <a href="mailto:@item.Email">@Html.DisplayFor(modelItem => item.Name)</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ApproverName)
+                <a href="mailto:@item.ApproverEmail">@Html.DisplayFor(modelItem => item.ApproverName)</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LeaveDateTime)
