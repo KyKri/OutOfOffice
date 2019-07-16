@@ -19,7 +19,7 @@ namespace OutOfOffice.Controllers
         }
 
         // GET: OutOfOffice
-        public async Task<IActionResult> Index(string requestStatus, string searchString)
+        public async Task<IActionResult> Index(string requestStatus, string searchString, string sortOrder)
         {
             IQueryable<string> statusQuery = from r in _context.Request orderby r.Status select r.Status;
 
@@ -33,6 +33,18 @@ namespace OutOfOffice.Controllers
             if (!String.IsNullOrEmpty(requestStatus))
             {
                 requests = requests.Where(t => t.Status == requestStatus);
+            }
+
+            ViewData["NameSort"] = String.IsNullOrEmpty(sortOrder) ? "nameDesc" : "";
+
+            switch(sortOrder)
+            {
+                case "nameDesc": 
+                    requests = requests.OrderByDescending(r => r.Name);
+                    break;
+                default:
+                    requests = requests.OrderBy(r => r.Name);
+                    break;
             }
 
             var statusViewModel = new StatusViewModel

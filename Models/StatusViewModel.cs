@@ -9,5 +9,6 @@ namespace OutOfOffice.Models
         public SelectList Status { get; set; }
         public string RequestStatus { get; set; }
         public string SearchString { get; set; }
+        public string SortOrder { get; set; }
     }
 }
