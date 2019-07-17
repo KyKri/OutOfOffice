@@ -1,4 +1,4 @@
-@model OutOfOffice.Models.Request
+@model OutOfOffice.Models.FormViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -13,49 +13,49 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <label asp-for="Request.Name" class="control-label"></label>
+                <input asp-for="Request.Name" class="form-control" />
+                <span asp-validation-for="Request.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
+                <label asp-for="Request.Email" class="control-label"></label>
+                <input asp-for="Request.Email" class="form-control" />
+                <span asp-validation-for="Request.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ApproverName" class="control-label"></label>
-                <input asp-for="ApproverName" class="form-control" />
-                <span asp-validation-for="ApproverName" class="text-danger"></span>
+                <label asp-for="Request.ApproverName" class="control-label"></label>
+                <input asp-for="Request.ApproverName" class="form-control" />
+                <span asp-validation-for="Request.ApproverName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ApproverEmail" class="control-label"></label>
-                <input asp-for="ApproverEmail" class="form-control" />
-                <span asp-validation-for="ApproverEmail" class="text-danger"></span>
+                <label asp-for="Request.ApproverEmail" class="control-label"></label>
+                <input asp-for="Request.ApproverEmail" class="form-control" />
+                <span asp-validation-for="Request.ApproverEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RequestType" class="control-label"></label>
-                <input asp-for="RequestType" class="form-control" />
-                <span asp-validation-for="RequestType" class="text-danger"></span>
+                <label asp-for="Request.RequestType" class="control-label"></label>
+                <select asp-for="Request.RequestType" asp-items="@Model.RequestType" class="form-control"></select>
+                <span asp-validation-for="Request.RequestType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LeaveDateTime" class="control-label"></label>
-                <input asp-for="LeaveDateTime" class="form-control" />
-                <span asp-validation-for="LeaveDateTime" class="text-danger"></span>
+                <label asp-for="Request.LeaveDateTime" class="control-label"></label>
+                <input asp-for="Request.LeaveDateTime" class="form-control" />
+                <span asp-validation-for="Request.LeaveDateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ReturnDateTime" class="control-label"></label>
-                <input asp-for="ReturnDateTime" class="form-control" />
-                <span asp-validation-for="ReturnDateTime" class="text-danger"></span>
+                <label asp-for="Request.ReturnDateTime" class="control-label"></label>
+                <input asp-for="Request.ReturnDateTime" class="form-control" />
+                <span asp-validation-for="Request.ReturnDateTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Reason" class="control-label"></label>
-                <input asp-for="Reason" class="form-control" />
-                <span asp-validation-for="Reason" class="text-danger"></span>
+                <label asp-for="Request.Reason" class="control-label"></label>
+                <input asp-for="Request.Reason" class="form-control" />
+                <span asp-validation-for="Request.Reason" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
+                <label asp-for="Request.Status" class="control-label"></label>
+                <select asp-for="Request.Status" asp-items="@Model.Status" class="form-control"></select>
+                <span asp-validation-for="Request.Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

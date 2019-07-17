@@ -77,7 +77,19 @@ namespace OutOfOffice.Controllers
         // GET: OutOfOffice/Create
         public IActionResult Create()
         {
-            return View();
+            FormViewModel model = new FormViewModel();
+            model.RequestType = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Jury Duty", Value = "Jury Duty" },
+                new SelectListItem { Text = "Sick Leave", Value = "Sick Leave" },
+                new SelectListItem { Text = "Vacation", Value = "Vacation" }
+            };
+            model.Status = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Pending", Value = "Pending" }
+            };
+
+            return View(model);
         }
 
         // POST: OutOfOffice/Create
@@ -109,7 +121,24 @@ namespace OutOfOffice.Controllers
             {
                 return NotFound();
             }
-            return View(request);
+
+            FormViewModel model = new FormViewModel();
+            model.RequestType = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Jury Duty", Value = "Jury Duty" },
+                new SelectListItem { Text = "Sick Leave", Value = "Sick Leave" },
+                new SelectListItem { Text = "Vacation", Value = "Vacation" }
+            };
+            model.Status = new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Pending", Value = "Pending" },
+                new SelectListItem { Text = "Approved", Value = "Approved" },
+                new SelectListItem { Text = "Declined", Value = "Declined" },
+                new SelectListItem { Text = "Cancelled", Value = "Cancelled" }
+            };
+            model.Request = request;
+
+            return View(model);
         }
 
         // POST: OutOfOffice/Edit/5
