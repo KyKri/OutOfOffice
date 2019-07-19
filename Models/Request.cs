@@ -13,6 +13,7 @@ namespace OutOfOffice.Models
         public string Name { get; set; }
 
         [StringLength(50)]
+        [EmailAddress]
         [Required]
         public string Email { get; set; }
 
@@ -22,6 +23,7 @@ namespace OutOfOffice.Models
         public string ApproverName { get; set; }
 
         [Display(Name = "Approver Email")]
+        [EmailAddress]
         [StringLength(50)]
         [Required]
         public string ApproverEmail { get; set; }
