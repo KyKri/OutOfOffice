@@ -29,7 +29,7 @@
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSort"]">@Html.DisplayNameFor(model => model.Requests[0].Name)</a>
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Requests[0].ApproverName)
+                <a asp-action="Index" asp-route-sortOrder="@ViewData["ApproverSort"]">@Html.DisplayNameFor(model => model.Requests[0].ApproverName)</a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Requests[0].LeaveDateTime)

@@ -36,11 +36,18 @@ namespace OutOfOffice.Controllers
             }
 
             ViewData["NameSort"] = String.IsNullOrEmpty(sortOrder) ? "nameDesc" : "";
+            ViewData["ApproverSort"] = sortOrder == "aprv" ? "aprvDesc" : "aprv";
 
             switch(sortOrder)
             {
                 case "nameDesc": 
                     requests = requests.OrderByDescending(r => r.Name);
+                    break;
+                case "aprvDesc": 
+                    requests = requests.OrderByDescending(r => r.ApproverName);
+                    break;
+                case "aprv": 
+                    requests = requests.OrderBy(r => r.ApproverName);
                     break;
                 default:
                     requests = requests.OrderBy(r => r.Name);
